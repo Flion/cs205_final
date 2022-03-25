@@ -1,3 +1,6 @@
+# Dylan Woolley
+# CS205 001
+
 # TODO: Modify this file to create a shell script that is able to use awk to go through a file
 # formatted like pokemon.dat and provides a printed report in the following format (where your 
 # script correctly calculates the values that go into the [VALUE] placeholders):
@@ -15,3 +18,18 @@
 # The data file will be passed in to the script as a positional parameter and will not
 # necessarily be called pokemon.dat. However, you can assume that any file passed to this
 # script will be formatted exactly the way pokemon.dat is formatted.
+
+# Get the file name from the console
+FILENAME=$1;
+
+# Check to make sure that the file exists
+if [ -f "$FILENAME" ]; then
+    #echo $FILENAME "exists in the file system";
+    
+    # If the file exists then run the awk script
+    awk -f cs205_final_exam.awk $FILENAME
+else
+    # If the file doesn't exist then tell the user it doesn't exist and to try again
+    echo $FILENAME "does not exist in the file system";
+    echo "Please try running the script with an existing file";
+fi
