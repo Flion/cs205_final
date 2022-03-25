@@ -7,6 +7,38 @@
 #    Avg. Defense: [VALUE]
 # ======= END SUMMARY =======
 
+# begin the code
+BEGIN{FS="\t"}
+{
+# skip the first line of categories
+if (NR!=1){
+# if the pokemon is not legendary according to the legendary column
+ if  ($13=="False"){
+
+# then add up how many pokemon are not legendary
+ non_legendary+=1
+# add up the hp for each non-legendary pokemon
+ hp += $6
+# add up the defense for each non-legendary pokemon
+ def +=$8
+}
+}
+}
+# start printing the results
+END{
+# print the top title
+print "======= SUMMARY OF POKEMON.DAT ======" 
+# print the number of non-legendary pokemon
+print "   Total Non-Legendary Pokemon: ", non_legendary
+
+# print the average health of non-legendary pokemon
+print "   Avg. HP: ", hp/non_legendary
+
+# print the total average defense of non-legendary pokemon
+print "   Avg. Defense: ", def/non_legendary
+
+# print the ending of the table
+print "======= END SUMMARY ======="}
 # NOTE THAT YOU MUST USE AWK OR YOU WILL LOSE POINTS
 # The "Avg." values should be calculated as mean values for the corresponding columns.
 # The averages must only be for non-legendary pokemon.
