@@ -2,11 +2,29 @@
 # formatted like pokemon.dat and provides a printed report in the following format (where your 
 # script correctly calculates the values that go into the [VALUE] placeholders):
 # ======= SUMMARY OF POKEMON.DAT ======
-#    Total Non-Legendary Pokemon: [VALUE]
-#    Avg. HP: [VALUE]
-#    Avg. Defense: [VALUE]
+#    Total Non-Legendary Pokemon: [290251]
+#    Avg. HP: [69.1723]
+#    Avg. Defense: [73.7503]
 # ======= END SUMMARY =======
-
+#This is getting rid of the tabs
+BEGIN{FS="\t"} 
+#The sum of the colum of defense 
+{sum+=$8
+#The sum of the coloum of HP
+sum1+=$6 
+#The sum of colomn of totoal pokemon
+sum3+=$1
+#Used for the average
+if (NR!=1)
+hp+=1}
+#If these are true then these statements run
+END{
+iThe s um of the pokemon
+print sum3
+print sum/NR
+#The sum of HP
+print sum1/NR
+}
 # NOTE THAT YOU MUST USE AWK OR YOU WILL LOSE POINTS
 # The "Avg." values should be calculated as mean values for the corresponding columns.
 # The averages must only be for non-legendary pokemon.
