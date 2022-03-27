@@ -12,7 +12,7 @@
 
 hp=0
 sum=0
-attack=0
+defense=0
 legendary=0
 
 echo "======= SUMMARY OF POKEMON.DAT ======"
@@ -23,7 +23,7 @@ awk 'BEGIN{FS="\t"}
 	if (NR!=1){
 	hp+=$5
 	sum+=1
-	attack+=$6
+	defense+=$8
         
 	if($13 == "False"){
 		legendary+=1
@@ -34,7 +34,8 @@ awk 'BEGIN{FS="\t"}
 END{
 print "   Total Non-Legendary Pokemon: " legendary
 print "   Avg. HP: " (hp/sum)
-print "   Avg. Attack: " (attack/sum)
+print "   Avg. Defense: " (defense/sum)
 }' pokemon.dat
 
 echo "======= END SUMMARY ======="
+
