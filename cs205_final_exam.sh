@@ -6,6 +6,27 @@
 #    Avg. HP: [VALUE]
 #    Avg. Defense: [VALUE]
 # ======= END SUMMARY =======
+BEGIN{FS="\t"}
+{
+if (NR!=1){
+#TODO change HP to add up the number of HP on the Pokemon listed
+hp+=$6
+def+=$8
+#Counts the number of lines in the file
+sum+=1
+}
+}
+END{
+# Prints the number of lines in the file
+
+print "======= SUMMARY OF POKEMON.DAT ======"
+print   "Total Non-Legendary Pokemon:" 
+print   "Avg. HP:"
+print hp/NR
+print   "Avg. Defense:"
+print def/NR
+print "======= END SUMMARY ======="
+}
 
 # NOTE THAT YOU MUST USE AWK OR YOU WILL LOSE POINTS
 # The "Avg." values should be calculated as mean values for the corresponding columns.
