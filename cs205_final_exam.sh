@@ -15,3 +15,25 @@
 # The data file will be passed in to the script as a positional parameter and will not
 # necessarily be called pokemon.dat. However, you can assume that any file passed to this
 # script will be formatted exactly the way pokemon.dat is formatted.
+
+#! /usr/bin/awk -f
+BEGIN{FS="\t"; hp = 0; sum = 0; defense = 0}
+{
+if (NR!=1 && $13 == "False")
+{
+#$6 is the 6th column which is the HP column $8 is defense
+hp += $6
+defense += $8
+
+#Counts the number of legends in the file
+sum+=1
+}
+}
+END{
+# prints the average hp with simple maths
+print "=====SUMMARY OF POKEMON.DAT=====\n"
+printf( "Total Non-Legendary Pokemon: %d\n", sum)
+printf("Avg HP: %d\n", hp/sum)
+printf("Avg Defense: %d\n", defense/sum)
+print "=====END SUMMARY=====\n"
+}
