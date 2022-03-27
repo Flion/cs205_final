@@ -15,3 +15,23 @@
 # The data file will be passed in to the script as a positional parameter and will not
 # necessarily be called pokemon.dat. However, you can assume that any file passed to this
 # script will be formatted exactly the way pokemon.dat is formatted.
+
+#Awk Starts Here
+BEGIN{FS="\t"}
+{
+#Exclude Legendary Pokemon in Column 13
+	if($13 == "False"){
+		total+=1
+#Find the total defence and health of the pokemon
+		hp += $5
+		df += $7
+	}
+}
+#Print the output as described in the header
+END{
+print" ======= SUMMARY OF POKEMON.DAT ======"
+print"    Total Non-Legendary Pokemon: total"
+print"    Avg. HP: hp/total"
+print"    Avg. Defense: df/total"
+print" ======= END SUMMARY ======="
+}
