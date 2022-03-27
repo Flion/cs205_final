@@ -15,3 +15,21 @@
 # The data file will be passed in to the script as a positional parameter and will not
 # necessarily be called pokemon.dat. However, you can assume that any file passed to this
 # script will be formatted exactly the way pokemon.dat is formatted.
+
+BEGIN{ FS = "\t"}
+{
+    if(NR != 1){
+        if($13 != true)
+        {
+            nonLegendary+=1
+            hp+=$6
+            defense+=$8
+        }
+    }
+} END {
+    print "======= SUMMARY OF POKEMON.DAT ======"
+    print "   Total Non-Legendary Pokemon: " nonLegendary
+    print "   Avg. HP: " hp/nonLegendary
+    print "   Avg. Defense: " defense/nonLegendary
+    print "======= END SUMMARY ======="
+}
