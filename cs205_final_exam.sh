@@ -6,6 +6,26 @@
 #    Avg. HP: [VALUE]
 #    Avg. Defense: [VALUE]
 # ======= END SUMMARY =======
+#!/bin/bash
+BEGIN { FS="\t" }
+{
+	if (NR!=1)
+		hp+=$6
+		def+=$8
+		sum+=1
+		if ($NF ~ "false")
+			total+=1
+	
+	
+}
+END{
+print "======= SUMMARY OF POKEMON.DAT ======"
+print "   Total Non-Legendary Pokemon: "total
+print "   Avg. HP: "hp/sum
+print "   Avg. Defense: "def/sum
+print "======= END SUMMARY ======"
+}
+
 
 # NOTE THAT YOU MUST USE AWK OR YOU WILL LOSE POINTS
 # The "Avg." values should be calculated as mean values for the corresponding columns.
