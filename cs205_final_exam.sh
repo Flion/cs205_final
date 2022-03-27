@@ -15,3 +15,24 @@
 # The data file will be passed in to the script as a positional parameter and will not
 # necessarily be called pokemon.dat. However, you can assume that any file passed to this
 # script will be formatted exactly the way pokemon.dat is formatted.
+
+#We need to grab the amount of True values in collumn 13
+#We need to add the health of all the pokemon that are legendary
+# we need to add the defense of all the pokemon that are legendary
+
+#Grab the FIle in as a positional argument
+FILE="$1"
+#Define variables
+legendTotal=0
+HpTotal=0
+defTotal=
+#print the file
+echo $FILE
+#if file exists
+if test -e $FILE
+	#count the number of legendaries
+	awk -F '\t' '{print $13}' 
+	# count the number of HP
+	#count the number of Def
+	# print out the summary info
+fi
