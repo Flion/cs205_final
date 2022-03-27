@@ -25,8 +25,8 @@ BEGIN{
 (/False/) {defenseTotal += $8}
 
 END{
-      hpAverage = (hpTotal / (NR - 1))
-      defenseAverage = (defenseTotal / (NR - 1))
+      hpAverage = (hpTotal / (nonLegendCount))
+      defenseAverage = (defenseTotal / (nonLegendCount))
 
       print "======= SUMMARY OF POKEMON.DAT ======"
       print ("   Total Non-Legendary Pokemon: ", nonLegendCount)
