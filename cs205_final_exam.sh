@@ -7,6 +7,41 @@
 #    Avg. Defense: [VALUE]
 # ======= END SUMMARY =======
 
+
+
+awkcommand='
+BEGIN{FS="\t"}
+{
+#count the number of pokemon not including the very top
+if (NR!=1){
+
+#if column 12 is not a legendary
+if ($12!="True"){
+
+#sum the pokemon
+numOfPokemon+=1
+
+#sum the hp
+hp+=$5
+
+#sum up the defense
+def+=$7
+}
+}
+}
+END{
+#print results
+print("======= SUMMARY OF POKEMON.DAT ======")
+print("Total Non-Legendary Pokemon:", numOfPokemon)
+print("Avg. HP:", hp/numOfPokemon)
+print("Avg. Defense:", def/numOfPokemon)
+print("======= END SUMMARY =======")}
+'
+
+#awk command
+awk "$awkcommand" ./pokemon.dat
+
+
 # NOTE THAT YOU MUST USE AWK OR YOU WILL LOSE POINTS
 # The "Avg." values should be calculated as mean values for the corresponding columns.
 # The averages must only be for non-legendary pokemon.
