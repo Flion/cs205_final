@@ -15,3 +15,22 @@
 # The data file will be passed in to the script as a positional parameter and will not
 # necessarily be called pokemon.dat. However, you can assume that any file passed to this
 # script will be formatted exactly the way pokemon.dat is formatted.
+
+BEGIN{
+      FS = "\t"
+     }
+
+(/False/) {nonLegendCount += 1}
+(/False/) {hpTotal += $6}
+(/False/) {defenseTotal += $8}
+
+END{
+      hpAverage = (hpTotal / (NR - 1))
+      defenseAverage = (defenseTotal / (NR - 1))
+
+      print "======= SUMMARY OF POKEMON.DAT ======"
+      print ("   Total Non-Legendary Pokemon: ", nonLegendCount)
+      print ("   Avg. HP: ", hpAverage)
+      print ("   Avg. Defense: ", defenseAverage)
+      print "======= END SUMMARY ======="
+     }
