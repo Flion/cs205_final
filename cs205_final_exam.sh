@@ -15,3 +15,13 @@
 # The data file will be passed in to the script as a positional parameter and will not
 # necessarily be called pokemon.dat. However, you can assume that any file passed to this
 # script will be formatted exactly the way pokemon.dat is formatted.
+FILE=$1
+awk 'NR>1 {count=NR-1 avgHP+=$6 avgDef+=$8}' $FILE
+output="====== SUMMARY OF $FILE ======"
+output1="    Total Non-Legendary Pokemon: $count"
+output2="    Avg. HP: $avgHP"
+output3="    Avg. Defense: $avgDef"
+echo $output
+echo $output1
+echo $output2
+echo $output3
