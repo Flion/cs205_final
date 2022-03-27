@@ -6,6 +6,18 @@
 #    Avg. HP: [VALUE]
 #    Avg. Defense: [VALUE]
 # ======= END SUMMARY =======
+#janick
+#riley
+#rcj56
+BEGIN{FS="/t"}
+{
+if (NR!=1){
+hp+=1
+sum+=hp
+}
+}
+END{
+print sum}
 
 # NOTE THAT YOU MUST USE AWK OR YOU WILL LOSE POINTS
 # The "Avg." values should be calculated as mean values for the corresponding columns.
