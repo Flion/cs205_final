@@ -6,6 +6,15 @@
 #    Avg. HP: [VALUE]
 #    Avg. Defense: [VALUE]
 # ======= END SUMMARY =======
+echo "======= SUMMARY OF POKEMON.DAT ======"
+echo "Number of non-legendary Pokemon"
+awk -v N=15 '{sum += $N } END { print sum}' pokemon.dat
+echo "Avg. HP:" 
+awk -v N=6 '{sum += $N } END { if (NR > 0) print sum / NR}' pokemon.dat
+echo "Avg. Defense:"
+awk -v N=8 '{sum += $N } END { if (NR > 0) print sum / NR}' pokemon.dat
+echo "======= END SUMMARY ======="
+
 
 # NOTE THAT YOU MUST USE AWK OR YOU WILL LOSE POINTS
 # The "Avg." values should be calculated as mean values for the corresponding columns.
