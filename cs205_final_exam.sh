@@ -7,6 +7,8 @@
 #    Avg. Defense: [VALUE]
 # ======= END SUMMARY =======
 
+awk ''pokemon.dat
+
 # NOTE THAT YOU MUST USE AWK OR YOU WILL LOSE POINTS
 # The "Avg." values should be calculated as mean values for the corresponding columns.
 # The averages must only be for non-legendary pokemon.
