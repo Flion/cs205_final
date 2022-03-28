@@ -15,3 +15,33 @@
 # The data file will be passed in to the script as a positional parameter and will not
 # necessarily be called pokemon.dat. However, you can assume that any file passed to this
 # script will be formatted exactly the way pokemon.dat is formatted.
+
+BEGIN{FS="\t"}
+{
+if (NR!=1){
+hp+=1
+
+#Counts the number of lines in the file
+{sum+=1}}
+}END
+#counts non legendaries by subtracting the legendary by number of total pokemon
+{
+if (12=True)
+{leg+=1}
+}END{print sum-leg}
+
+{
+if (NR!=1){
+hp+=1
+
+#Counts the number of lines in the file
+{sum+=1}}
+}END{
+print sum;}
+
+#Finding the avg for hp
+{hit_points+=$6}
+END{print hit_points/sum;}
+
+
+	
