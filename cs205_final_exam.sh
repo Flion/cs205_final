@@ -3,7 +3,9 @@
 # script correctly calculates the values that go into the [VALUE] placeholders):
 # ======= SUMMARY OF POKEMON.DAT ======
 #    Total Non-Legendary Pokemon: [VALUE]
+cat pokemon.dat | grep Non-Legenday Pokemon
 #    Avg. HP: [VALUE]
+echo `awk 'BEGIN{c1=0} //{c1++} END{print "Number of lines: ",c1}' pokemon.dat`
 #    Avg. Defense: [VALUE]
 # ======= END SUMMARY =======
 
