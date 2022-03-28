@@ -15,3 +15,29 @@
 # The data file will be passed in to the script as a positional parameter and will not
 # necessarily be called pokemon.dat. However, you can assume that any file passed to this
 # script will be formatted exactly the way pokemon.dat is formatted.
+
+#!/bin/bash
+
+#Total Non-Legendary Pokemon
+
+BEGIN{FS="\t"}
+{
+	if (NR!=1) {
+		amount+=$1
+		sum+=1
+	}
+ 
+		if ($i== "true") 
+			count++
+#Average HP
+hp+=$6
+
+
+#Average Defense
+def+=$8
+}
+END{
+print "Number of Pokemon "  sum-count
+print "Average of HP "  hp/sum
+print "Average of DEF "  def/sum}
+
