@@ -26,9 +26,9 @@
 # sum of all their defense. I then go ahead and return the value from a
 # sub-shell. I do go ahead and make sure to use the first input arg as the arg
 # for awk as well.
-count=$(awk 'BEGIN {count=0;} { if(NR != 1 && $13 == "False") count++} END {print count}' $1)
-hp=$(awk 'BEGIN {hp=0;} { if(NR != 1 && $13 == "False") hp+=$5} END {print hp}' $1)
-def=$(awk 'BEGIN {def=0;} { if(NR != 1 && $13 == "False") def+=$7} END {print def}' $1)
+count=$(awk 'BEGIN {FS="\t"} {if(if(NR != 1 && $13 == "False") count++} END {print count}' $1)
+hp=$(awk 'BEGIN {FS="\t"} {if(NR != 1 && $13 == "False") hp+=$5} END {print hp}' $1)
+def=$(awk 'BEGIN {FS="\t"} {if(NR != 1 && $13 == "False") def+=$7} END {print def}' $1)
 
 # display formatted data
 echo "======= SUMMARY OF POKEMON.DAT ======"
