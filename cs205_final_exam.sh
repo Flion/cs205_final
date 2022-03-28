@@ -15,3 +15,16 @@
 # The data file will be passed in to the script as a positional parameter and will not
 # necessarily be called pokemon.dat. However, you can assume that any file passed to this
 # script will be formatted exactly the way pokemon.dat is formatted.
+#!/usr/bin/bash
+echo "======= SUMMARY OF POKEMON.DAT ======";
+
+# using awk to count total non-legendary pokemon, average HP, and average defen# defense all in one loop
+awk 'BEGIN{nonLeg=0;totalHP=0;totalDef=0;}
+{if ($12 == "False") nonLeg+=1; totalHP+=$5; totalDef+=$7;}
+END {printf("Total Non-Legendary Pokemon: %d\n",nonLeg);
+printf("Avg. HP: %d\n", totalHP/nonLeg);
+printf("Avg. Defense: %d\n", totalDef/nonLeg);}' $1
+
+echo "====== END SUMMARY ======";
+
+
