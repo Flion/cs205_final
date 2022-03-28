@@ -15,3 +15,6 @@
 # The data file will be passed in to the script as a positional parameter and will not
 # necessarily be called pokemon.dat. However, you can assume that any file passed to this
 # script will be formatted exactly the way pokemon.dat is formatted.
+
+awk '{if ($13 == TRUE) {legend += 1 hp += $6 def += $7}} END {print "======= SUMMARY OF POKEMON.DAT ======" printf "\n" print "      Total Non-Legendary Pokemon: " printf "\n" legend print "     Avg. HP: " hp/ NR printf "\n" print "     Avg. Defense: " def/ NR printf "\n" print "======= END SUMMARY =======" }' pokemon.dat
+
