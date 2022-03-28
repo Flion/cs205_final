@@ -12,9 +12,12 @@ BEGIN(FS="\t")
 {
 if (NR!=1)
   {
-  hp+=$8
-  def+=$10
-  leg+=$17
+  hp+=$6
+  def+=$8
+  if ($13=="True")
+    {
+    leg+=1
+    }
   total+=1
   }
 }
