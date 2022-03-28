@@ -15,3 +15,19 @@
 # The data file will be passed in to the script as a positional parameter and will not
 # necessarily be called pokemon.dat. However, you can assume that any file passed to this
 # script will be formatted exactly the way pokemon.dat is formatted.
+
+#Angel Martinez
+#!/bin/bash
+
+awk -F'\t' '{ if(NR!=1){ if($13 == 'False'){nonLegPok+=1} } } END{print nonLegPok}' pokemon.dat > nonLegPok
+awk -F'\t' '{ if(NR!=1){hp+=$6; sum+=1} } END{print hp/sum}' pokemon.dat > avgHP
+awk -F'\t' '{ if(NR!=1){defense+=$8; sum+=1} } END{print defense/sum}' pokemon.dat > avgDefense
+
+echo '===== SUMMARY OF POKEMON.DAT ===== '
+echo '    Total Non-Legendary Pokemon:'
+awk '{ print }' nonLegPok
+echo '    Avg. HP:'
+awk '{ print }' avgHP
+echo '    Avg. Defense:'
+awk '{ print }' avgDefense
+echo '========= END OF SUMMARY ========= '
