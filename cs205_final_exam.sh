@@ -15,3 +15,28 @@
 # The data file will be passed in to the script as a positional parameter and will not
 # necessarily be called pokemon.dat. However, you can assume that any file passed to this
 # script will be formatted exactly the way pokemon.dat is formatted.
+
+FILE=$1
+
+awk '{
+  # if NR does not equal 1 and are non legendary 
+  if (NR !=1 && $13 == "False")
+  {
+      # counts the number of non legendary
+      nonLegend+=1
+
+      # adds up all  hp points
+      hp+=$6
+
+      # adds up all defense points
+      defense+=$8
+
+      # counts the number of lines in the file
+      sum+=1
+  }
+} # prints the table
+END {print "======= SUMMARY OF POEKEMON.DAT ======";
+     print "   Total Non-Legendary Pokemon: " nonLegend;
+     print "   Avg. HP: " hp/sum;
+     print "   Avg.Defense: "defense/sum;
+     print "======= END SUMMARY =======";}' $FILE
