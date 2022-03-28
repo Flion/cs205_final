@@ -1,12 +1,33 @@
+#!/bin/bash
+
+awk BEGIN{FS=\t}
+{
+	if (NR != 1) 
+		if($13 != "False")
+			legendCount += 1;
+		fi
+		
+		if($13 == "False")
+			regCount += 1;
+			hp += $6;
+			defence += $8;
+		fi
+	fi
+
+END
+{
+	hp = hp / regCount
+	defense = defense / regCount
 # TODO: Modify this file to create a shell script that is able to use awk to go through a file
 # formatted like pokemon.dat and provides a printed report in the following format (where your 
 # script correctly calculates the values that go into the [VALUE] placeholders):
-# ======= SUMMARY OF POKEMON.DAT ======
-#    Total Non-Legendary Pokemon: [VALUE]
-#    Avg. HP: [VALUE]
-#    Avg. Defense: [VALUE]
-# ======= END SUMMARY =======
 
+	printf " ======= SUMMARY OF POKEMON.DAT ======\n"
+	printf "    Total Non-Legendary Pokemon: %f\n", legendCount
+	printf "    Avg. HP: %.2f", hp
+	printf "    Avg. Defense: %.2f", defense
+	printf " ======= END SUMMARY ======="
+} 
 # NOTE THAT YOU MUST USE AWK OR YOU WILL LOSE POINTS
 # The "Avg." values should be calculated as mean values for the corresponding columns.
 # The averages must only be for non-legendary pokemon.
