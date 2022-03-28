@@ -21,8 +21,8 @@ if (NR!=1)
   total+=1
   }
 }
-END
-{
+
+END {
 print"======= SUMMARY OF POKEMON.DAT ======"
 print"   Total Non-Legendary Pokemon: "total-leg
 print"   Avg. HP: "hp/total
