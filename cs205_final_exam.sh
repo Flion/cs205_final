@@ -8,7 +8,7 @@
 # ======= END SUMMARY =======
 
 awk '
-BEGIN(FS="\t") 
+BEGIN{FS="\t"} 
 {
 if (NR!=1)
   {
@@ -28,7 +28,7 @@ print"   Total Non-Legendary Pokemon: "total-leg
 print"   Avg. HP: "hp/total
 print"   Avg. Defense: "def/total 
 print"======= END SUMMARY ======="
-}'pokemon.dat
+}' pokemon.dat
 
 # NOTE THAT YOU MUST USE AWK OR YOU WILL LOSE POINTS
 # The "Avg." values should be calculated as mean values for the corresponding columns.
