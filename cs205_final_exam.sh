@@ -7,6 +7,49 @@
 #    Avg. Defense: [VALUE]
 # ======= END SUMMARY =======
 
+BEGIN{FS="\t"}
+{
+    #skip the first line
+    if (NR!=1)
+    {
+        #check for current being a non legendary
+        if ($13 == "False")
+        {
+            #tally total non legendary
+            totalNonLeg += 1
+
+            #increment total hp
+            hp += $6
+
+            #increment total defense
+            defense += $8
+        }
+    }
+}
+
+END{
+    #get average hp of non legendary
+    hp = hp / totalNonLeg
+
+    #get average defense of non legendary
+    defense = defense / totalNonLeg
+
+    #print out beginning of summary
+    print "======= SUMMARY OF POKEMON.DAT ======="
+
+    #print out total non legendary
+    print "    Total Non-Legendary Pokemon:", totalNonLeg
+
+    #print out avg hp of non legendary
+    print "    Avg. HP:", hp
+
+    #print out avg defense of non legendary
+    print "    Avg. Defense:", defense
+
+    #print out end of summary
+    print "======= END OF SUMMARY ======="
+   }
+
 # NOTE THAT YOU MUST USE AWK OR YOU WILL LOSE POINTS
 # The "Avg." values should be calculated as mean values for the corresponding columns.
 # The averages must only be for non-legendary pokemon.
