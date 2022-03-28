@@ -15,3 +15,60 @@
 # The data file will be passed in to the script as a positional parameter and will not
 # necessarily be called pokemon.dat. However, you can assume that any file passed to this
 # script will be formatted exactly the way pokemon.dat is formatted.
+
+
+BEGIN{FS="\t"}
+{
+ if (NR!=1)
+    {
+     
+     # split the .dat file by tabs using FS
+     split( $0, array )
+     
+     # check the legendary status of the pokemon
+     legendary = array[13]
+     
+     if ( legendary == "False" )
+        {
+         
+         # iterates how many non legendary pokemon there are
+         nonLegend += 1
+         
+         
+         #HP
+         
+         # get the HP of the current pokemon
+         hp = array[6]
+         
+         # add the hp to previous to get the total ammount
+         hpSum += hp
+         
+         
+         #Defense
+         
+         # get the defense of the current pokemon
+         defense = array[8]
+         
+         # add the hp to previous to get total
+         defenseSum += defense
+         
+        }
+     
+     
+    }
+}
+END{
+
+ # find Averages
+ hpAvg = hpSum/nonLegend
+ defenseAvg = defenseSum/nonLegend
+
+ # print the end result
+ print "======= SUMMARY OF POKEMON.DAT ======"
+ print "   Total Non-Legendary Pokemon: " nonLegend
+ print "   Avg. HP: " hp
+ print "   Avg. Defense: " defense
+ print "======= END SUMMARY =======\n"
+
+ 
+}
