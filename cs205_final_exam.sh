@@ -6,7 +6,16 @@
 #    Avg. HP: [VALUE]
 #    Avg. Defense: [VALUE]
 # ======= END SUMMARY =======
-
+# Prints first line of printed report
+echo "======= SUMMARY OF POKEMON.DAT ======"
+# Counts the number of lines that include False (Flase Legendary)
+awk '/False/{c++} END {print "    Total Non-Legendary Pokemon:", c}' $1
+# Sums up the HP and divides it by the number of lines that are False
+awk '{sum+=$5} /False/{c++} END {print "    Avg. HP:", sum/c}' $1
+# Sums up the Defense and divides it by the number of lines that are False
+awk '{sum+=$7} /False/{c++} END {print "    Avg. Defense:", sum/c}' $1
+# Prints last line of printed report
+echo "======= END SUMMARY ======="
 # NOTE THAT YOU MUST USE AWK OR YOU WILL LOSE POINTS
 # The "Avg." values should be calculated as mean values for the corresponding columns.
 # The averages must only be for non-legendary pokemon.
