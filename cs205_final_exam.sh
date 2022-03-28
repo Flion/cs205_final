@@ -1,11 +1,23 @@
 # TODO: Modify this file to create a shell script that is able to use awk to go through a file
 # formatted like pokemon.dat and provides a printed report in the following format (where your 
 # script correctly calculates the values that go into the [VALUE] placeholders):
-# ======= SUMMARY OF POKEMON.DAT ======
-#    Total Non-Legendary Pokemon: [VALUE]
-#    Avg. HP: [VALUE]
-#    Avg. Defense: [VALUE]
-# ======= END SUMMARY =======
+if($7 = false){
+hp+=$6
+}
+#adds up all values in columm 6 if they are not legendary
+if ($7 = false){
+sum+=
+}
+#adds up number of rows with false as legendary
+if($7 = false){
+sumdef+=$9
+}
+ ======= SUMMARY OF POKEMON.DAT ======
+    Total Non-Legendary Pokemon: print sum
+    Avg. HP: print hp/sum
+    Avg. Defense: print sumdef/sum
+ ======= END SUMMARY ======
+
 
 # NOTE THAT YOU MUST USE AWK OR YOU WILL LOSE POINTS
 # The "Avg." values should be calculated as mean values for the corresponding columns.
