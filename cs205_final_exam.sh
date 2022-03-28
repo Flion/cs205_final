@@ -9,3 +9,24 @@
 # The spacing and header formatting should match the above formatting description exactly.
 # There should be a comment explaining the purpose of each line in your shell script. 
 # The data file will be passed in to the script as a positional parameter and will not necessarily be called pokemon.dat. However, you can assume that any file passed to this script will be formatted exactly the way pokemon.dat is formatted.
+BEGIN{}
+{
+
+overall+=1
+hp+=$6
+defense+=$8
+if($12==False){
+sum+=1
+}
+if($13==False){
+sum+=1
+}
+if($14==False){
+sum+=1
+}
+}
+END{
+print sum
+print hp/overall
+print defense/overall
+}
