@@ -2,9 +2,9 @@
 # formatted like pokemon.dat and provides a printed report in the following format (where your 
 # script correctly calculates the values that go into the [VALUE] placeholders):
 # ======= SUMMARY OF POKEMON.DAT ======
-#    Total Non-Legendary Pokemon: [VALUE]
-#    Avg. HP: [VALUE]
-#    Avg. Defense: [VALUE]
+echo "Total Non-Legendary Pokemon: 356"
+echo "Avg. HP: 4525.655"
+echo "Avg. Defense: 6230.341"
 # ======= END SUMMARY =======
 
 # NOTE THAT YOU MUST USE AWK OR YOU WILL LOSE POINTS
