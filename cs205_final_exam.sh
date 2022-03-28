@@ -15,3 +15,28 @@
 # The data file will be passed in to the script as a positional parameter and will not
 # necessarily be called pokemon.dat. However, you can assume that any file passed to this
 # script will be formatted exactly the way pokemon.dat is formatted.
+
+#start script
+BEGIN{FS="\t"}
+{
+if ($13!="True"){
+#if $13 does not hold the value True, it is not a legendary
+#increment count of nonlegendaries
+count+=1
+#increment total hp
+hp+=$6
+#increment total defense
+def+=$8
+}
+}
+END{
+#get average hp
+hp = hp/count
+#get average def
+def = def/count
+#print values
+print "======= SUMMARY OF", FILENAME, "======="
+print "Total Non-Legendary Pokemon:", count
+print "Avg. HP:", hp
+print "Avg. Defense:", def
+print"======= END SUMMARY======="}
