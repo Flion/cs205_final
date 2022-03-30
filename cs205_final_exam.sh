@@ -15,6 +15,16 @@ sum+=1
 END{
 print "Avg. HP: " hp/sum}
 #    Avg. Defense: [VALUE]
+BEGIN{FS="\t"}
+{
+if (NR!=1){
+defense+=$8
+
+sum2+=1
+}
+}
+END{
+print "Avg. Defense: " defense/sum2}
 # ======= END SUMMARY =======
 
 # NOTE THAT YOU MUST USE AWK OR YOU WILL LOSE POINTS
